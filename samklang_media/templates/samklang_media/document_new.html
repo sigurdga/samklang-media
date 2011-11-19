@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load uni_form_tags %}
+{% load i18n %}
+
+{% block title %}{% trans "Upload files" %}{% endblock %}
+
+{% block main %}
+    <h1>{% trans "Upload files" %}</h1>
+    <form action="" method="post" id="uploadform" class="uniForm" enctype="multipart/form-data">
+        <fieldset class="inlineLabels">
+            {% csrf_token %}
+            {{ form|as_uni_form }}
+        </fieldset>
+    </form>
+    <form action="{% url media-file-manage %}" method="get" class="uniform">
+        <div class="buttonHolder">
+            <button type="submit" id="submit">{% trans "Set title and permissions" %}</button> {% trans "Go on to the last step before your files are published" %}
+        </div>
+    </form>
+{% endblock main %}
+
+{% block context_info %}
+    <p>{% trans "Uploading is done i two steps: In the first step you upload the files, and in the second, you decide permissions and titles" %}. This is the first step.</p>
+    <p>{% trans "Click and drag files from your file system to the box below, or find files through the file chooser. Your files are uploaded instantly." %}</p>
+{% endblock context_info %}
+
+{% block js_start %}
+<script src="{{ STATIC_URL }}js/IFrameFormRequest.js"></script>
+<script src="{{ STATIC_URL }}js/Request.File.js"></script>
+<script src="{{ STATIC_URL }}js/Form.MultipleFileInput.js"></script>
+<script src="{{ STATIC_URL }}js/uploader.js"></script>
+{% endblock %}

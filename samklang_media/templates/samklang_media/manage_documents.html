@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load uni_form_tags %}
+{% load i18n %}
+
+{% block title %}{% trans "Manage your recently uploaded files" %}{% endblock title %}
+
+{% block main %}
+
+<h1>{% trans "Manage your recently uploaded files" %}</h1>
+
+{% comment %}
+{% uni_form formset formset.form.helper %}
+{% endcomment %}
+
+{% if formset %}
+<form method="post" action="" class="uniForm">
+    {% csrf_token %}
+    {{ formset|as_uni_form }}
+    <div class="buttonHolder">
+        <button type="submit">Save</button>
+    </div>
+</form>
+{% else %}
+<p>{% trans "No unpublished files uploaded the last hour" %}
+{% endif %}
+{% endblock main %}
+
+{% block context_info %}
+<p>{% trans "These are your uploaded files from the last hour, which have not been published. Just make sure you have ticked or unticked the \"published\" field and which group will be able to view the files." %}</p>
+{% endblock context_info %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load uni_form_tags %}
+
+{% block main %}
+
+<h1>{{ object.filename }}</h1>
+
+{% uni_form form %}
+
+{% endblock main %}

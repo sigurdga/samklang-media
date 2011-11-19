@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load uni_form_tags %}
+
+{% block main %}
+
+<table>
+{% for file in object_list %}
+<tr>
+    <td>{{ file.id }}</td>
+    <td><a href="{{ file.file.url }}">{{ file.filename }}</a></td>
+    <td>{{ file.submit_date }}</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock main %}
+
+{% block context_menu %}
+{% if request.user.is_authenticated %}
+<li><a href="{% url media-file-list %}">All published files</a></li>
+<li><a href="{% url media-file-unpublished %}">My unpublished files</a></li>
+<li><a href="{% url media-file-new %}">Upload files</a></li>
+{% endif %}
+{% endblock %}

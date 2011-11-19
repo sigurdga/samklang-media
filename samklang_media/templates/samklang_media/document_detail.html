@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load uni_form_tags %}
+
+{% block main %}
+
+<h1>{{ object.filename }}</h1>
+
+<p><a href="{{ object.file.url }}">{{ object.file.url }}</a></p>
+
+<p>{{ object.user}}, {{ object.submit_date }}</p>
+
+
+{% endblock main %}

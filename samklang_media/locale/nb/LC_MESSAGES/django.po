@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-19 14:13+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: models.py:49
+msgid "File"
+msgstr "Fil"
+
+#: models.py:50
+msgid "Filename"
+msgstr "Filnavn"
+
+#: models.py:51
+msgid "Content type"
+msgstr "Filtype"
+
+#: models.py:52
+msgid "Content category"
+msgstr "Innholdstype"
+
+#: models.py:54
+msgid "Site"
+msgstr "Nettsted"
+
+#: models.py:55
+msgid "User"
+msgstr "Bruker"
+
+#: models.py:56
+msgid "Group"
+msgstr "Gruppe"
+
+#: models.py:57
+msgid "Published"
+msgstr "Publisert"
+
+#: models.py:58
+msgid "Tags"
+msgstr "Etiketter"
+
+#: models.py:77
+msgid "Document"
+msgstr "Dokument"
+
+#: models.py:77
+msgid "Documents"
+msgstr "Dokumenter"
+
+#: templates/samklang_media/document_new.html:5
+#: templates/samklang_media/document_new.html:8
+msgid "Upload files"
+msgstr "Last opp filer"
+
+#: templates/samklang_media/document_new.html:17
+msgid "Set title and permissions"
+msgstr "Sett tittel og rettigheter"
+
+#: templates/samklang_media/document_new.html:17
+msgid "Go on to the last step before your files are published"
+msgstr "Fortsett til neste skritt for å fullføre publisering"
+
+#: templates/samklang_media/document_new.html:23
+msgid ""
+"Uploading is done i two steps: In the first step you upload the files, and "
+"in the second, you decide permissions and titles"
+msgstr "Opplasting skjer i to skritt: Først laster du opp filene, og så bestemmer du titler og rettigheter"
+
+#: templates/samklang_media/document_new.html:24
+msgid ""
+"Click and drag files from your file system to the box below, or find files "
+"through the file chooser. Your files are uploaded instantly."
+msgstr "Dra filer fra filsystemet til boksen, eller finn filer ved å bruke den vanlige filvelgeren. Filene blir lastet opp med en gang."
+
+#: templates/samklang_media/manage_documents.html:5
+#: templates/samklang_media/manage_documents.html:9
+msgid "Manage your recently uploaded files"
+msgstr "Publiser dine nyopplastede filer"
+
+#: templates/samklang_media/manage_documents.html:24
+msgid "No unpublished files uploaded the last hour"
+msgstr "Ingen upubliserte filer lastet opp siste time"
+
+#: templates/samklang_media/manage_documents.html:29
+msgid ""
+"These are your uploaded files from the last hour, which have not been "
+"published. Just make sure you have ticked or unticked the \\"
+msgstr ""
