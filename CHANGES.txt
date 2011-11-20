@@ -1,1 +1,2 @@
+v0.1.1, 2011-11-19 -- Use tags in file list, filter the list if tags are present.
 v0.1.0, 2011-11-19 -- Initial release.
