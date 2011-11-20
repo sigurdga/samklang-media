@@ -82,6 +82,15 @@ def manage_documents(request):
 class DocumentListView(ListView):
     model = Document
 
+    def get_queryset(self):
+        queryset = super(DocumentListView, self).get_queryset().filter(show=True)
+        tag_url = self.kwargs.get("tags", "")
+        if tag_url:
+            tag_list = tag_url.split("/")
+            return queryset.filter(tags__name__in=tag_list).distinct()
+        else:
+            return queryset
+
 class DocumentDetailView(DetailView):
     model = Document
 

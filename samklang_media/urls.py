@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     url(r'^v/(?P<pk>\d+)/$', DocumentDetailView.as_view(), name="media-file-detail"),
     (r'^e/(?P<pk>\d+)/$', DocumentUpdateView.as_view(), {}),
     url(r'^d/$', DocumentListView.as_view(queryset=Document.objects.filter(show=False)), name="media-file-unpublished"),
-    url(r'^$', DocumentListView.as_view(queryset=Document.objects.filter(show=True)), name="media-file-list"),
+    url(r'^(?:(?P<tags>.*)|)$', DocumentListView.as_view(), name="media-file-list"),
     #(r'^image/delete/(?P<pk>\d+)$', ImageDeleteView.as_view(), {}, 'media-delete-image'),
 )

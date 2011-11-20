@@ -9,6 +9,7 @@
     <td>{{ file.id }}</td>
     <td><a href="{{ file.file.url }}">{{ file.filename }}</a></td>
     <td>{{ file.submit_date }}</td>
+    <td>{% for tag in file.tags.all %}<a class="tag" href="{{ request.path_info }}/{{ tag }}">{{ tag }}</a>{% endfor %}</td>
 </tr>
 {% endfor %}
 </table>
