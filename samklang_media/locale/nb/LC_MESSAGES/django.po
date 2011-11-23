@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-19 14:13+0100\n"
+"POT-Creation-Date: 2011-11-24 00:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,13 +46,17 @@ msgstr "Bruker"
 msgid "Group"
 msgstr "Gruppe"
 
-#: models.py:57
+#: models.py:57 templates/samklang_media/document_detail.html:14
 msgid "Published"
 msgstr "Publisert"
 
 #: models.py:58
 msgid "Tags"
 msgstr "Etiketter"
+
+#: models.py:58
+msgid "A comma-separated list of tags."
+msgstr "Kommaseparert liste etiketter"
 
 #: models.py:77
 msgid "Document"
@@ -62,6 +66,27 @@ msgstr "Dokument"
 msgid "Documents"
 msgstr "Dokumenter"
 
+#: templates/samklang_media/document_detail.html:14
+msgid "Hidden"
+msgstr "Skjult"
+
+#: templates/samklang_media/document_detail.html:21
+msgid "Edit"
+msgstr "Rediger"
+
+#: templates/samklang_media/document_list.html:18
+msgid "No files matching your criteria"
+msgstr "Ingen filer som passer dine kriterier"
+
+#: templates/samklang_media/document_list.html:25
+msgid "All published files"
+msgstr "Alle publiserte filer"
+
+#: templates/samklang_media/document_list.html:26
+msgid "My unpublished files"
+msgstr "Mine upubliserte filer"
+
+#: templates/samklang_media/document_list.html:27
 #: templates/samklang_media/document_new.html:5
 #: templates/samklang_media/document_new.html:8
 msgid "Upload files"
@@ -79,13 +104,17 @@ msgstr "Fortsett til neste skritt for å fullføre publisering"
 msgid ""
 "Uploading is done i two steps: In the first step you upload the files, and "
 "in the second, you decide permissions and titles"
-msgstr "Opplasting skjer i to skritt: Først laster du opp filene, og så bestemmer du titler og rettigheter"
+msgstr ""
+"Opplasting skjer i to skritt: Først laster du opp filene, og så bestemmer du "
+"titler og rettigheter"
 
 #: templates/samklang_media/document_new.html:24
 msgid ""
 "Click and drag files from your file system to the box below, or find files "
 "through the file chooser. Your files are uploaded instantly."
-msgstr "Dra filer fra filsystemet til boksen, eller finn filer ved å bruke den vanlige filvelgeren. Filene blir lastet opp med en gang."
+msgstr ""
+"Dra filer fra filsystemet til boksen, eller finn filer ved å bruke den "
+"vanlige filvelgeren. Filene blir lastet opp med en gang."
 
 #: templates/samklang_media/manage_documents.html:5
 #: templates/samklang_media/manage_documents.html:9
@@ -99,5 +128,9 @@ msgstr "Ingen upubliserte filer lastet opp siste time"
 #: templates/samklang_media/manage_documents.html:29
 msgid ""
 "These are your uploaded files from the last hour, which have not been "
-"published. Just make sure you have ticked or unticked the \\"
+"published. Just make sure you have ticked or unticked the \"published\" "
+"field and which group will be able to view the files."
 msgstr ""
+"Dette er de filene du har lastet opp den siste timen som ikke er publisert. "
+"Kryss av i feltet \"publisert\" for om filene skal kunne sees av andre, og "
+"sett passende gruppe, eller la hele verden får se."

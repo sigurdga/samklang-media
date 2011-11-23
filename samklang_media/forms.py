@@ -32,8 +32,9 @@ class ManageDocumentForm(ModelForm):
 class DocumentForm(ModelForm):
     class Meta:
         model = Document
+        fields = ('file', 'filename', 'group', 'tags', 'show')
 
     def __init__(self, *args, **kwargs):
         self.helper = FormHelper()
-        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.add_input(Submit('button', 'Submit'))
         return super(DocumentForm, self).__init__(*args, **kwargs)

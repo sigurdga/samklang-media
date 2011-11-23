@@ -3,6 +3,7 @@
 
 {% block main %}
 
+{% if object_list %}
 <table>
 {% for file in object_list %}
 <tr>
@@ -13,13 +14,16 @@
 </tr>
 {% endfor %}
 </table>
+{% else %}
+<p>{% trans "No files matching your criteria" %}
+{% endif %}
 
 {% endblock main %}
 
 {% block context_menu %}
 {% if request.user.is_authenticated %}
-<li><a href="{% url media-file-list %}">All published files</a></li>
-<li><a href="{% url media-file-unpublished %}">My unpublished files</a></li>
-<li><a href="{% url media-file-new %}">Upload files</a></li>
+<li><a href="{% url media-file-list %}">{% trans "All published files" %}</a></li>
+<li><a href="{% url media-file-unpublished %}">{% trans "My unpublished files" %}</a></li>
+<li><a href="{% url media-file-new %}">{% trans "Upload files" %}</a></li>
 {% endif %}
 {% endblock %}

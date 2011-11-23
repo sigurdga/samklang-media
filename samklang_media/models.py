@@ -55,7 +55,7 @@ class MediaBase(models.Model):
     user = models.ForeignKey(User, verbose_name=_('User'), blank=True)
     group = models.ForeignKey(Group, null=True, blank=True, verbose_name=_('Group'))
     show = models.BooleanField(_('Published'), default=False)
-    tags = TaggableManager(_('Tags'), blank=True)
+    tags = TaggableManager(_('Tags'), blank=True, help_text=_("A comma-separated list of tags."))
 
     class Meta:
         abstract = True
