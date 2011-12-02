@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.forms.models import modelformset_factory
+from django.db.models.query_utils import Q
 
 from samklang_media.models import Document
 from samklang_media.forms import *
@@ -15,6 +16,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 import os
+from taggit.models import Tag, TaggedItem
 import magic
 
 from datetime import datetime, timedelta
@@ -68,11 +70,12 @@ def upload_document(request):
 
 def manage_documents(request):
     DocumentFormset = modelformset_factory(Document, fields=("filename", "group", "tags", "show"), extra=0)
-    queryset = Document.objects.filter(submit_date__gt=datetime.now()-timedelta(hours=1), show=False)
+    queryset = Document.objects.filter(user=request.user, submit_date__gt=datetime.now()-timedelta(hours=1), show=False)
     if request.method == "POST":
         formset = DocumentFormset(request.POST, queryset=queryset)
         if formset.is_valid():
             formset.save()
+            return HttpResponseRedirect(reverse('media-document-list'))
     else:
         formset = DocumentFormset(queryset=queryset)
     return render_to_response("samklang_media/manage_documents.html", {
@@ -83,7 +86,7 @@ class DocumentListView(ListView):
     model = Document
 
     def get_queryset(self):
-        queryset = super(DocumentListView, self).get_queryset().filter(show=True)
+        queryset = super(DocumentListView, self).get_queryset().filter(Q(group=None) | Q(group__user=self.request.user)).filter(show=True)
         tag_url = self.kwargs.get("tags", "")
         if tag_url:
             tag_list = tag_url.split("/")
@@ -94,9 +97,17 @@ class DocumentListView(ListView):
 class DocumentDetailView(DetailView):
     model = Document
 
+    def get_queryset(self):
+        return super(DocumentDetailView, self).get_queryset().filter(Q(group=None) | Q(group__user=self.request.user)).filter(show=True)
+
+
 class DocumentUpdateView(UpdateView):
     model = Document
     form_class = DocumentForm
+
+    def get_queryset(self):
+        return super(DocumentUpdateView, self).get_queryset().filter(Q(group=None) | Q(group__user=self.request.user)).filter(show=True)
+
 
 class DocumentCreateView(CreateView):
     model = Document

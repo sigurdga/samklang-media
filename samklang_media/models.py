@@ -47,15 +47,15 @@ class MediaBase(models.Model):
     """
 
     file = models.FileField(upload_to=get_upload_to, storage=UpdateIgnoreStorage(), verbose_name=_('File'))
-    filename = models.CharField(max_length=60, verbose_name=_('Filename'))
-    content_type = models.CharField(verbose_name=_('Content type'), max_length=80, blank=True)
+    filename = models.CharField(max_length=60, verbose_name=_('filename'))
+    content_type = models.CharField(verbose_name=_('content type'), max_length=80, blank=True)
     content_category = models.SmallIntegerField(verbose_name=_('Content category'), blank=True)
     submit_date = models.DateTimeField(auto_now_add=True)
-    site = models.ForeignKey(Site, verbose_name=_('Site'), blank=True)
-    user = models.ForeignKey(User, verbose_name=_('User'), blank=True)
+    site = models.ForeignKey(Site, verbose_name=_('site'), blank=True)
+    user = models.ForeignKey(User, verbose_name=_('user'), blank=True)
     group = models.ForeignKey(Group, null=True, blank=True, verbose_name=_('Group'))
-    show = models.BooleanField(_('Published'), default=False)
-    tags = TaggableManager(_('Tags'), blank=True, help_text=_("A comma-separated list of tags."))
+    show = models.BooleanField(_('show in lists'), default=False)
+    tags = TaggableManager(_('tags'), blank=True, help_text=_("A comma-separated list of tags."))
 
     class Meta:
         abstract = True
@@ -74,5 +74,5 @@ class Document(MediaBase):
 
 
     class Meta:
-        verbose_name, verbose_name_plural = _("Document"), _("Documents")
+        verbose_name, verbose_name_plural = _("document"), _("documents")
         db_table = 'samklang_media'

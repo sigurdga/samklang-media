@@ -16,9 +16,7 @@
 <form method="post" action="" class="uniForm">
     {% csrf_token %}
     {{ formset|as_uni_form }}
-    <div class="buttonHolder">
-        <button type="submit">Save</button>
-    </div>
+    <button type="submit">Save</button>
 </form>
 {% else %}
 <p>{% trans "No unpublished files uploaded the last hour" %}
@@ -26,5 +24,6 @@
 {% endblock main %}
 
 {% block context_info %}
+<h1>{% trans "What's this" %}</h1>
 <p>{% trans 'These are your uploaded files from the last hour, which have not been published. Just make sure you have ticked or unticked the "published" field and which group will be able to view the files.' %}</p>
 {% endblock context_info %}

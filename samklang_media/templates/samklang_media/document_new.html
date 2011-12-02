@@ -20,11 +20,12 @@
 {% endblock main %}
 
 {% block context_info %}
+    <h1>{% trans "How to upload files" %}</h1>
     <p>{% trans "Uploading is done i two steps: In the first step you upload the files, and in the second, you decide permissions and titles" %}. This is the first step.</p>
     <p>{% trans "Click and drag files from your file system to the box below, or find files through the file chooser. Your files are uploaded instantly." %}</p>
 {% endblock context_info %}
 
-{% block js_start %}
+{% block footer_include %}
 <script src="{{ STATIC_URL }}js/IFrameFormRequest.js"></script>
 <script src="{{ STATIC_URL }}js/Request.File.js"></script>
 <script src="{{ STATIC_URL }}js/Form.MultipleFileInput.js"></script>
