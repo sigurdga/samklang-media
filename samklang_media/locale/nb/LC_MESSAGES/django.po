@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-02 04:09+0100\n"
+"POT-Creation-Date: 2011-12-13 21:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,34 +66,37 @@ msgstr "dokument"
 msgid "documents"
 msgstr "dokumenter"
 
-#: templates/samklang_media/document_detail.html:14
+#: templates/samklang_media/document_detail.html:15
 msgid "Published"
 msgstr "Publisert"
 
-#: templates/samklang_media/document_detail.html:14
+#: templates/samklang_media/document_detail.html:15
 msgid "Hidden"
 msgstr "Skjult"
 
-#: templates/samklang_media/document_detail.html:21
+#: templates/samklang_media/document_detail.html:22
 msgid "Edit"
 msgstr "Rediger"
 
 #: templates/samklang_media/document_list.html:7
-#: templates/samklang_media/document_list.html:27
+#: templates/samklang_media/document_list.html:25
 msgid "All published files"
 msgstr "Alle publiserte filer"
 
-#: templates/samklang_media/document_list.html:20
+#: templates/samklang_media/document_list.html:18
+#: templates/samklang_media/image_list.html:16
 msgid "No files matching your criteria"
 msgstr "Ingen filer som passer dine kriterier"
 
-#: templates/samklang_media/document_list.html:28
+#: templates/samklang_media/document_list.html:26
 msgid "My unpublished files"
 msgstr "Mine upubliserte filer"
 
-#: templates/samklang_media/document_list.html:29
+#: templates/samklang_media/document_list.html:27
 #: templates/samklang_media/document_new.html:5
 #: templates/samklang_media/document_new.html:8
+#: templates/samklang_media/image_new.html:5
+#: templates/samklang_media/image_new.html:8
 msgid "Upload files"
 msgstr "Last opp filer"
 
@@ -124,6 +127,18 @@ msgid ""
 msgstr ""
 "Dra filer fra filsystemet til boksen, eller finn filer ved å bruke den "
 "vanlige filvelgeren. Filene blir lastet opp med en gang."
+
+#: templates/samklang_media/image_list.html:5
+msgid "All published images"
+msgstr "Alle publiserte bilder"
+
+#: templates/samklang_media/image_new.html:15
+msgid "Upload"
+msgstr "Last opp"
+
+#: templates/samklang_media/image_new.html:21
+msgid "Published files"
+msgstr "Publiserte filer"
 
 #: templates/samklang_media/manage_documents.html:5
 #: templates/samklang_media/manage_documents.html:9
