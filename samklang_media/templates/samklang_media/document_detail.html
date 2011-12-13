@@ -6,7 +6,8 @@
 
 <h1>{{ object.filename }}</h1>
 
-<div class="metaline">{{ object.user }} {{ object.submit_date }}</div>
+<div class="metaline">{{ object.user.get_full_name|default:object.user }},
+    <time datetime="{{ object.submit_date|date:"c" }}">{{ object.submit_date|date:"j F" }}</div>
 <p>{{ object.content_type }}, {{ object.content_category }}</p>
 
 <p><a href="{{ object.file.url }}">{{ object.file.url }}</a></p>
