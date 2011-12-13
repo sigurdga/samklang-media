@@ -1,0 +1,33 @@
+{% extends "simple.html" %}
+{% load i18n %}
+
+{% block main %}
+<h1>{% trans "All published images" %}</h1>
+
+{% if object_list %}
+<div class="compact">
+{% for file in object_list %}
+<h2><a class="image" href="{{ file.file.url }}" title="{{ file.filename }}">{{ file.filename }}</a></h2>
+<div class="metaline">{{ file.user }} {{ file.submit_date }}</div>
+<div class="tagline">{% for tag in file.tags.all %}<a class="tag" href="{{ request.path_info }}/{{ tag }}">{{ tag }}</a>{% endfor %}</div>
+{% endfor %}
+</div>
+{% else %}
+<p>{% trans "No files matching your criteria" %}
+{% endif %}
+
+{% endblock %}
+
+{% block context_menu %}
+<li><a href="{% url media-image-new %}">Upload</a></li>
+{% endblock %}
+
+{% block footer_js %}
+    $$('.image').each(function (image) {
+        image.addEvent('click', function (event) {
+            parent.document.id("prompt-address").set('value', image.get('href'));
+            parent.document.id("prompt-description").set('value', image.get('title'));
+            parent.document.id("button-ok").click();
+            });
+    });
+{% endblock %}

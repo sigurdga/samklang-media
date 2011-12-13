@@ -43,6 +43,54 @@ def upload_file(request):
         'form': form,
         }, context_instance=RequestContext(request))
 
+class ImageCreateView(CreateView):
+    model = Document
+    template_name = 'samklang_media/image_new.html'
+    form_class = ImageForm
+
+    def form_valid(self, form):
+        mime = magic.Magic(mime=True)
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.content_type = mime.from_buffer(self.object.file.read(128))
+        self.object.content_category = 1 # hardcode to "image"
+        if hasattr(self.request, 'site'):
+            self.object.site = self.request.site
+        else:
+            self.object.site = Site.objects.get(pk=1)
+        self.object.save()
+        return HttpResponseRedirect(reverse('media-image-list'))
+
+
+class DocumentCreateView(CreateView):
+    model = Document
+    template_name = 'samklang_media/document_new.html'
+    form_class = UploadForm
+
+    def form_valid(self, form):
+        if self.request.FILES:
+            mime = magic.Magic(mime=True)
+            for f in self.request.FILES.getlist('file'):
+                fobj = Document()
+                fobj.file = f
+                fobj.filename = f.name
+                fobj.content_type = mime.from_buffer(f.file.read(128))
+                fobj.content_category = 0 # hardcode to "generic uncategorized document"
+                if hasattr(self.request, 'site'):
+                    fobj.site = self.request.site
+                else:
+                    fobj.site = Site.objects.get(pk=1)
+                fobj.user = self.request.user
+                fobj.save()
+            return JSONResponse({})
+
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DocumentCreateView, self).dispatch(*args, **kwargs)
+
+
+
 
 def upload_document(request):
     if request.method == "POST" and request.FILES and request.user.is_authenticated():
@@ -69,13 +117,13 @@ def upload_document(request):
             }, context_instance=RequestContext(request))
 
 def manage_documents(request):
-    DocumentFormset = modelformset_factory(Document, fields=("filename", "group", "tags", "show"), extra=0)
+    DocumentFormset = modelformset_factory(Document, fields=("filename", "tags", "show", "group"), extra=0)
     queryset = Document.objects.filter(user=request.user, submit_date__gt=datetime.now()-timedelta(hours=1), show=False)
     if request.method == "POST":
         formset = DocumentFormset(request.POST, queryset=queryset)
         if formset.is_valid():
             formset.save()
-            return HttpResponseRedirect(reverse('media-document-list'))
+            return HttpResponseRedirect(reverse('media-file-list'))
     else:
         formset = DocumentFormset(queryset=queryset)
     return render_to_response("samklang_media/manage_documents.html", {
@@ -109,7 +157,7 @@ class DocumentUpdateView(UpdateView):
         return super(DocumentUpdateView, self).get_queryset().filter(Q(group=None) | Q(group__user=self.request.user)).filter(show=True)
 
 
-class DocumentCreateView(CreateView):
+class DocumentOldCreateView(CreateView):
     model = Document
     form_class = UploadForm
     template_name = "samklang_media/document_new.html"
