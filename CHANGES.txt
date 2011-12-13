@@ -1,2 +1,3 @@
+v0.2.0, 2011-12-02 -- Lots of small updates to bring parts of Samklang together
 v0.1.1, 2011-11-19 -- Use tags in file list, filter the list if tags are present.
 v0.1.0, 2011-11-19 -- Initial release.
