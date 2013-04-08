@@ -12,7 +12,7 @@
             {{ form|as_uni_form }}
         </fieldset>
     </form>
-    <form action="{% url media-file-manage %}" method="get" class="uniform">
+    <form action="{% url 'media-file-manage' %}" method="get" class="uniForm">
         <div class="buttonHolder">
             <button type="submit" id="submit">{% trans "Set title and permissions" %}</button> {% trans "Go on to the last step before your files are published" %}
         </div>

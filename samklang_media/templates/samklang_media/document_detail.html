@@ -19,9 +19,9 @@
 {% endblock main %}
 
 {% block context_menu %}
-<li><a href="{% url media-file-edit object.id %}">{% trans "Edit" %}</a></li>
-<li><a href="{% url media-file-list %}">All published files</a></li>
-<li><a href="{% url media-file-unpublished %}">My unpublished files</a></li>
-<li><a href="{% url media-file-new %}">Upload files</a></li>
+<li><a href="{% url 'media-file-edit' object.id %}">{% trans "Edit" %}</a></li>
+<li><a href="{% url 'media-file-list' %}">All published files</a></li>
+<li><a href="{% url 'media-file-unpublished' %}">My unpublished files</a></li>
+<li><a href="{% url 'media-file-new' %}">Upload files</a></li>
 
 {% endblock %}

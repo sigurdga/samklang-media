@@ -9,7 +9,7 @@
 {% if object_list %}
 <div class="compact">
 {% for file in object_list %}
-<h2><a href="{% url media-file-detail file.id %}">{{ file.filename }}</a></h2>
+<h2><a href="{% url 'media-file-detail' file.id %}">{{ file.filename }}</a></h2>
 <div class="metaline">{{ file.user }} {{ file.submit_date }}</div>
 <div class="tagline">{% for tag in file.tags.all %}<a class="tag" href="{{ request.path_info }}/{{ tag }}">{{ tag }}</a>{% endfor %}</div>
 {% endfor %}
@@ -22,8 +22,8 @@
 
 {% block context_menu %}
 {% if request.user.is_authenticated %}
-<li><a href="{% url media-file-list %}">{% trans "All published files" %}</a></li>
-<li><a href="{% url media-file-unpublished %}">{% trans "My unpublished files" %}</a></li>
-<li><a href="{% url media-file-new %}">{% trans "Upload files" %}</a></li>
+<li><a href="{% url 'media-file-list' %}">{% trans "All published files" %}</a></li>
+<li><a href="{% url 'media-file-unpublished' %}">{% trans "My unpublished files" %}</a></li>
+<li><a href="{% url 'media-file-new' %}">{% trans "Upload files" %}</a></li>
 {% endif %}
 {% endblock %}
