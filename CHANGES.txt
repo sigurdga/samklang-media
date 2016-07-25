@@ -1,3 +1,4 @@
+v0.5.0, 2016-07-26 -- Url functions have moved in Django 1.6
 v0.4.0, 2013-04-08 -- Django 1.5 new url templatetag syntax
 v0.3.0, 2011-12-13 -- Beta with experimental helper views for wmd image chooser and upload.
 v0.2.0, 2011-12-02 -- Lots of small updates to bring parts of Samklang together
